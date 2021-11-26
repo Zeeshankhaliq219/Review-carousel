@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+
+        .slideshow-container {
+            position: relative;
+            background: #f1f1f1f1;
+        }
+
+        .mySlides {
+            display: none;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: #888;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+        }
+
+ 
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        q {
+            font-style: italic;
+        }
+
+        .author {
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides">
+            <q>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum accusantium sit similique architecto at consectetur dolore, obcaecati dolorum, quasi, mollitia nulla aperiam error adipisci! Explicabo, earum perferendis. Alias autem soluta accusantium est? Sequi facere ipsum veritatis nihil cum explicabo aliquam nostrum?</q>
+            <p class="author">Zeeshan khaliq</p>
+        </div>
+
+        <div class="mySlides">
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam autem, quidem id unde recusandae alias quia veniam. Similique, quaerat. Ea incidunt earum suscipit molestias dignissimos id vel, quod eligendi sequi? Beatae, ipsa nisi?</q>
+            <p class="author">Ali mardan</p>
+        </div>
+
+        <div class="mySlides">
+            <q>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, ex facilis beatae culpa officia quod blanditiis eos, aliquid animi, nobis similique ea sequi?</q>
+            <p class="author">Hamza</p>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+</body>
+
+</html>
